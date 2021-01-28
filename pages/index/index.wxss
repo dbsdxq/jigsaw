@@ -52,5 +52,6 @@
 }
 
 .pic-item-9 {
-  background-position: -500rpx -500rpx;
+  /* background-position: -500rpx -500rpx; */
+  background: transparent;
 }
