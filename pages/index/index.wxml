@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="pic-container">
+  <block wx:for="{{pictures}}" wx:key="index">
+    <view class="pic-item pic-item-{{item.fragment_no}}"></view>
+  </block>
+</view>

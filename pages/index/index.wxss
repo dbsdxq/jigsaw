@@ -1,0 +1,56 @@
+/**index.wxss**/
+.pic-container {
+  margin-top: 200rpx;
+  widows: 750rpx;
+  height: 750rpx;
+  background-color: pink;
+}
+
+.pic-item {
+  float: left;
+  width: 250rpx;
+  height: 250rpx;
+  background-image: url(https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3848402655,92542552&fm=26&gp=0.jpg);
+  background-repeat: no-repeat;
+  /* background-size: 250rpx 250rpx; */
+  /* 不能给大小，不然显示的不是切割的图片，而是完整的图片 */
+  box-sizing: border-box;
+  padding: 1px;
+  background-clip: content-box;
+}
+
+.pic-item-1 {
+  background-position: 0 0;
+}
+
+.pic-item-2 {
+  background-position: -250rpx 0;
+}
+
+.pic-item-3 {
+  background-position: -500rpx 0;
+}
+
+.pic-item-4 {
+  background-position: 0 -250rpx;
+}
+
+.pic-item-5 {
+  background-position: -250rpx -250rpx;
+}
+
+.pic-item-6 {
+  background-position: -500rpx -250rpx;
+}
+
+.pic-item-7 {
+  background-position: 0 -500rpx;
+}
+
+.pic-item-8 {
+  background-position: -250rpx -500rpx;
+}
+
+.pic-item-9 {
+  background-position: -500rpx -500rpx;
+}
