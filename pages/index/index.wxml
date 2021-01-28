@@ -1,6 +1,8 @@
 <!--index.wxml-->
 <view class="pic-container">
-  <block wx:for="{{pictures}}" wx:key="index">
-    <view class="pic-item pic-item-{{item.fragment_no}}"></view>
+  <block wx:for="{{pictures}}" wx:key="out_index" wx:for-index="out_index" wx:for-item="out_item">
+    <block wx:for="{{out_item}}" wx:key="index">
+      <view class="pic-item pic-item-{{item.fragment_no}}"></view>
+    </block>
   </block>
 </view>
