@@ -43,6 +43,19 @@ Page({
     const row_index = e.target.dataset.rowIndex;
     const col_index = e.target.dataset.colIndex;
     this.update_position_by_index(row_index, col_index);
+    if (this.game_finish()) {
+      wx.showModal({
+        title: '拼图游戏',
+        content: '游戏拼图成功',
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    }
   },
   update_position_by_index(row_index, col_index) {
     const pictures = this.data.pictures;
@@ -109,7 +122,9 @@ Page({
     this.setData({
       pictures: arr
     })
+  },
+  // 判断游戏拼图成功
+  game_finish() {
+    return this.data.pictures.flat(Infinity).map(v => v.fragment_no).join(',') === '1,2,3,4,5,6,7,8,9'
   }
-
-
 })
