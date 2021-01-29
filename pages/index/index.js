@@ -62,6 +62,7 @@ Page({
     let temp = null;
     let target_row_index = 0;
     let target_col_index = 0;
+    // 判断点击位置的附近是否存在空白块儿
     // 上方
     if (pictures[row_index - 1]) {
       target_row_index = row_index - 1;
@@ -111,11 +112,13 @@ Page({
   },
   // 重新开始游戏
   restart() {
+    // 数组降维并乱序
     const pictures = this.data.pictures.flat(Infinity).sort(function () {
       return Math.random() > 0.5 ? 1 : -1
     })
     const len = pictures.length;
     const arr = [];
+    // 重新恢复3x3二维数组
     for (let i = 0; i < len;) {
       arr.push(pictures.slice(i, i += 3))
     }
