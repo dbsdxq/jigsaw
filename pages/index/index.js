@@ -32,6 +32,7 @@ Page({
         fragment_no: 8
       },
       {
+        // 认定9号碎片显示为空白
         fragment_no: 9
       },
       ]
@@ -94,6 +95,20 @@ Page({
         pictures
       })
     }
+  },
+  // 重新开始游戏
+  restart() {
+    const pictures = this.data.pictures.flat(Infinity).sort(function () {
+      return Math.random() > 0.5 ? 1 : -1
+    })
+    const len = pictures.length;
+    const arr = [];
+    for (let i = 0; i < len;) {
+      arr.push(pictures.slice(i, i += 3))
+    }
+    this.setData({
+      pictures: arr
+    })
   }
 
 

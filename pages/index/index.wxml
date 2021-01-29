@@ -2,8 +2,11 @@
 <view class="pic-container">
   <block wx:for="{{pictures}}" wx:key="out_index" wx:for-index="out_index" wx:for-item="out_item">
     <block wx:for="{{out_item}}" wx:key="index">
-      <view class="pic-item pic-item-{{item.fragment_no}}" data-row-index="{{out_index}}" data-col-index="{{index}}"bindtap="click_pic">
+      <view class="pic-item pic-item-{{item.fragment_no}}" data-row-index="{{out_index}}" data-col-index="{{index}}"
+        bindtap="click_pic">
       </view>
     </block>
   </block>
+</view>
+<view><button class="restart-btn" type="primary" plain="{{true}}" bindtap="restart">重新开始</button>
 </view>

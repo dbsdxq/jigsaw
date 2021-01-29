@@ -55,3 +55,6 @@
   /* background-position: -500rpx -500rpx; */
   background: transparent;
 }
+.restart-btn{
+  margin-top: 20px;
+}
