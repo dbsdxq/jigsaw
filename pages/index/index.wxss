@@ -19,7 +19,7 @@
   float: left;
   width: 250rpx;
   height: 250rpx;
-  background-image: url(https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3848402655,92542552&fm=26&gp=0.jpg);
+  /* background-image: url(https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3848402655,92542552&fm=26&gp=0.jpg); */
   background-repeat: no-repeat;
   /* background-size: 250rpx 250rpx; */
   /* 不能给大小，不然显示的不是切割的图片，而是完整的图片 */
@@ -65,6 +65,7 @@
   background: transparent;
 }
 
-.restart-btn {
+.btn {
+  display: inline-block;
   margin-top: 20px;
 }

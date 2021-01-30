@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    // 拼图碎片
     pictures: [
       [{
         fragment_no: 1
@@ -36,7 +37,9 @@ Page({
         fragment_no: 9
       },
       ]
-    ]
+    ],
+    // 拼图图片地址
+    jigsaw_img_url: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3848402655,92542552&fm=26&gp=0.jpg',
   },
   // 点击图片
   click_pic(e) {
@@ -129,5 +132,25 @@ Page({
   // 判断游戏拼图成功
   game_finish() {
     return this.data.pictures.flat(Infinity).map(v => v.fragment_no).join(',') === '1,2,3,4,5,6,7,8,9'
+  },
+  // 更换拼图图片
+  choose_img(e) {
+    wx.chooseImage({
+      counnt: 1,
+      sizeType: 'compressed',
+      success: (res) => {
+        this.setData({
+          jigsaw_img_url: res.tempFilePaths
+        })
+      },
+      fail(e) {
+        console.log(e);
+        wx.showToast({
+          title: '更换图片失败',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
   }
 })
