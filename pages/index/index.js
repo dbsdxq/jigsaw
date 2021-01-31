@@ -1,4 +1,5 @@
 // index.js
+
 // 获取应用实例
 const app = getApp()
 
@@ -189,14 +190,48 @@ Page({
   },
   // 更换拼图图片
   choose_img(e) {
+    const that = this
     wx.chooseImage({
       counnt: 1,
       sizeType: 'compressed',
       success: (res) => {
-        this.setData({
-          jigsaw_img_url: res.tempFilePaths[0]
+        const img_url = res.tempFilePaths[0]
+        // this.setData({
+        //   jigsaw_img_url: img_url
+        // })
+        // this.init()
+        wx.getImageInfo({
+          src: img_url,
+          success: (res) => {
+            console.log(res.width)
+            console.log(res.height)
+            const origin_width = res.width
+            const origin_height = res.height
+            var ctx = wx.createCanvasContext('myCanvas')
+            ctx.drawImage(img_url, 0, 0, origin_width, origin_height, 0, 0, 375, 375)
+            ctx.draw(false, function () {
+              wx.canvasGetImageData({
+                canvasId: 'myCanvas',
+                x: 0,
+                y: 0,
+                width: origin_width,
+                height: origin_height,
+                success: (res) => {
+                  wx.canvasToTempFilePath({
+                    canvasId: 'myCanvas',
+                    success: (res) => {
+                      console.log(res.tempFilePath)
+                      that.setData({
+                        jigsaw_img_url: res.tempFilePath
+                      })
+                      that.init()
+                    }
+                  })
+                }
+              })
+            })
+          }
         })
-        this.init()
       },
       fail(e) {
         console.log(e);
