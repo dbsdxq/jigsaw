@@ -7,39 +7,85 @@ Page({
     // 拼图碎片
     pictures: [
       [{
-        fragment_no: 1
+        fragment_no: 1,
+        styles: '',
       },
       {
-        fragment_no: 2
+        fragment_no: 2,
+        styles: '',
       },
       {
-        fragment_no: 3
+        fragment_no: 3,
+        styles: '',
+      },
+      {
+        fragment_no: 3,
+        styles: '',
       },
       ],
       [{
-        fragment_no: 4
+        fragment_no: 4,
+        styles: '',
       },
       {
-        fragment_no: 5
+        fragment_no: 5,
+        styles: '',
       },
       {
-        fragment_no: 6
+        fragment_no: 6,
+        styles: '',
       },
       ],
       [{
-        fragment_no: 7
+        fragment_no: 7,
+        styles: '',
       },
       {
-        fragment_no: 8
+        fragment_no: 8,
+        styles: '',
       },
       {
         // 认定9号碎片显示为空白
-        fragment_no: 9
+        fragment_no: 9,
+        styles: '',
       },
       ]
     ],
     // 拼图图片地址
     jigsaw_img_url: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3848402655,92542552&fm=26&gp=0.jpg',
+    grid: 3, // 控制布局矩阵大小
+  },
+  onLoad() {
+    console.log('onload');
+    this.init()
+  },
+  // 初始化
+  init() {
+    const grid = this.data.grid;//控制矩阵大小
+    const width = `${750 / grid}`
+    const blank_no = grid * grid;
+    const arr = [];
+    let bg_img = `background-image:url(${this.data.jigsaw_img_url}`;
+    for (let i = 0; i < grid; i++) {
+      let row = [];
+      for (let j = 0; j < grid; j++) {
+        let col = {
+          fragment_no: i * grid + j + 1,
+          styles: [
+            `background-position: ${-width * j}rpx ${-width * i}rpx`,
+            `width:${width}rpx`,
+            `height:${width}rpx`
+          ],
+        }
+        col.styles.push(`${col.fragment_no != blank_no ? bg_img : "background: transparent"}`);
+        col.styles = col.styles.join(';')
+        row.push(col);
+      }
+      arr.push(row)
+    }
+    this.setData({
+      pictures: arr
+    })
   },
   // 点击图片
   click_pic(e) {
@@ -115,6 +161,7 @@ Page({
   },
   // 重新开始新游戏
   restart(random = true) {
+    const grid = this.data.grid;
     // 数组降维并乱序
     const pictures = this.data.pictures.flat(Infinity)
     if (random) {
@@ -128,9 +175,9 @@ Page({
     }
     const len = pictures.length;
     const arr = [];
-    // 重新恢复3x3二维数组
+    // 重新恢复二维数组
     for (let i = 0; i < len;) {
-      arr.push(pictures.slice(i, i += 3))
+      arr.push(pictures.slice(i, i += grid))
     }
     this.setData({
       pictures: arr
@@ -138,7 +185,7 @@ Page({
   },
   // 判断游戏拼图成功
   game_finish() {
-    return this.data.pictures.flat(Infinity).map(v => v.fragment_no).join(',') === '1,2,3,4,5,6,7,8,9'
+    return this.data.pictures.flat(Infinity).every((v, index) => v.fragment_no == index + 1)
   },
   // 更换拼图图片
   choose_img(e) {
@@ -147,9 +194,9 @@ Page({
       sizeType: 'compressed',
       success: (res) => {
         this.setData({
-          jigsaw_img_url: res.tempFilePaths
+          jigsaw_img_url: res.tempFilePaths[0]
         })
-
+        this.init()
       },
       fail(e) {
         console.log(e);

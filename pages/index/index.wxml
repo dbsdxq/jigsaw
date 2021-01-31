@@ -3,7 +3,7 @@
 <view class="pic-container">
   <block wx:for="{{pictures}}" wx:key="out_index" wx:for-index="out_index" wx:for-item="out_item">
     <block wx:for="{{out_item}}" wx:key="index">
-      <view class="pic-item pic-item-{{item.fragment_no}}" style="{{item.fragment_no!=9?'background-image:':''}}url({{jigsaw_img_url}})" data-row-index="{{out_index}}" data-col-index="{{index}}" bindtap="click_pic"></view>
+      <view class="pic-item" style="{{item.styles}}" data-row-index="{{out_index}}" data-col-index="{{index}}" bindtap="click_pic"></view>
     </block>
   </block>
 </view>
