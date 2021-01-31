@@ -9,5 +9,6 @@
 </view>
 <view>
   <button class="btn" type="primary" plain="{{true}}" bindtap="choose_img">更换图片</button>
-  <button class="btn" type="primary" plain="{{true}}" bindtap="restart">重新开始</button>
+  <button class="btn" type="primary" plain="{{true}}" bindtap="restart">重新开始新游戏</button>
+  <button class="btn" type="primary" plain="{{true}}" bindtap="reset">置位</button>
 </view>

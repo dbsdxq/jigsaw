@@ -113,12 +113,19 @@ Page({
       })
     }
   },
-  // 重新开始游戏
-  restart() {
+  // 重新开始新游戏
+  restart(random = true) {
     // 数组降维并乱序
-    const pictures = this.data.pictures.flat(Infinity).sort(function () {
-      return Math.random() > 0.5 ? 1 : -1
-    })
+    const pictures = this.data.pictures.flat(Infinity)
+    if (random) {
+      pictures.sort(function () {
+        return Math.random() > 0.5 ? 1 : -1
+      })
+    } else {
+      pictures.sort(function (a, b) {
+        return a.fragment_no - b.fragment_no
+      })
+    }
     const len = pictures.length;
     const arr = [];
     // 重新恢复3x3二维数组
@@ -142,6 +149,7 @@ Page({
         this.setData({
           jigsaw_img_url: res.tempFilePaths
         })
+
       },
       fail(e) {
         console.log(e);
@@ -152,5 +160,9 @@ Page({
         })
       }
     })
-  }
+  },
+  // 置位
+  reset() {
+    this.restart(false)
+  },
 })
