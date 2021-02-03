@@ -210,23 +210,14 @@ Page({
             var ctx = wx.createCanvasContext('myCanvas')
             ctx.drawImage(img_url, 0, 0, origin_width, origin_height, 0, 0, 375, 375)
             ctx.draw(false, function () {
-              wx.canvasGetImageData({
+              wx.canvasToTempFilePath({
                 canvasId: 'myCanvas',
-                x: 0,
-                y: 0,
-                width: origin_width,
-                height: origin_height,
                 success: (res) => {
-                  wx.canvasToTempFilePath({
-                    canvasId: 'myCanvas',
-                    success: (res) => {
-                      console.log(res.tempFilePath)
-                      that.setData({
-                        jigsaw_img_url: res.tempFilePath
-                      })
-                      that.init()
-                    }
+                  console.log(res.tempFilePath)
+                  that.setData({
+                    jigsaw_img_url: res.tempFilePath
                   })
+                  that.init()
                 }
               })
             })
