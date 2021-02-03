@@ -46,7 +46,7 @@ Page({
         styles: '',
       },
       {
-        // 认定9号碎片显示为空白
+        // 认定9号碎片显示为空白或者说最后一块默认为空白
         fragment_no: 9,
         styles: '',
       },
@@ -64,7 +64,7 @@ Page({
   init() {
     const grid = this.data.grid;//控制矩阵大小
     const width = `${750 / grid}`
-    const blank_no = grid * grid;
+    const blank_no = this.get_blank_no();
     const arr = [];
     let bg_img = `background-image:url(${this.data.jigsaw_img_url}`;
     for (let i = 0; i < grid; i++) {
@@ -88,6 +88,10 @@ Page({
       pictures: arr
     })
   },
+  // 获取空白编号
+  get_blank_no() {
+    return this.data.grid * this.data.grid
+  },
   // 点击图片
   click_pic(e) {
     const row_index = e.target.dataset.rowIndex;
@@ -108,6 +112,7 @@ Page({
     }
   },
   update_position_by_index(row_index, col_index) {
+    const blank_no = this.get_blank_no()
     const pictures = this.data.pictures;
     let temp = null;
     let target_row_index = 0;
@@ -118,7 +123,7 @@ Page({
       target_row_index = row_index - 1;
       target_col_index = col_index;
       temp = pictures[target_row_index][target_col_index];
-      if (temp.fragment_no !== 9) {
+      if (temp.fragment_no !== blank_no) {
         temp = null
       }
     }
@@ -127,7 +132,7 @@ Page({
       target_row_index = row_index + 1;
       target_col_index = col_index;
       temp = pictures[target_row_index][target_col_index];
-      if (temp.fragment_no !== 9) {
+      if (temp.fragment_no !== blank_no) {
         temp = null
       }
     }
@@ -136,7 +141,7 @@ Page({
       target_row_index = row_index;
       target_col_index = col_index - 1;
       temp = pictures[target_row_index][target_col_index];
-      if (temp.fragment_no !== 9) {
+      if (temp.fragment_no !== blank_no) {
         temp = null
       }
     }
@@ -145,12 +150,12 @@ Page({
       target_row_index = row_index;
       target_col_index = col_index + 1;
       temp = pictures[target_row_index][target_col_index];
-      if (temp.fragment_no !== 9) {
+      if (temp.fragment_no !== blank_no) {
         temp = null
       }
     }
     // 说明点击的位置旁边有空白块
-    if (temp && temp.fragment_no === 9) {
+    if (temp && temp.fragment_no === blank_no) {
       const target = temp;
       temp = pictures[row_index][col_index];
       pictures[row_index][col_index] = target;
