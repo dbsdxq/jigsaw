@@ -217,6 +217,12 @@ Page({
             ctx.draw(false, function () {
               wx.canvasToTempFilePath({
                 canvasId: 'myCanvas',
+                x: 0,
+                y: 0,
+                width: 375,
+                height: 375,
+                destWidth: 375,
+                destHeight: 375,
                 success: (res) => {
                   console.log(res.tempFilePath)
                   that.setData({
