@@ -55,15 +55,25 @@ Page({
     // 拼图图片地址
     jigsaw_img_url: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3848402655,92542552&fm=26&gp=0.jpg',
     grid: 3, // 控制布局矩阵大小
+    canvas_w: 375,
+    canvas_h: 375,
   },
   onLoad() {
     console.log('onload');
-    this.init()
+    wx.getSystemInfo({
+      success: (res) => {
+        this.setData({
+          canvas_w: res.windowWidth,
+          canvas_h: res.windowWidth
+        })
+        this.init()
+      },
+    })
   },
   // 初始化
   init() {
     const grid = this.data.grid;//控制矩阵大小
-    const width = `${750 / grid}`
+    const width = `${this.data.canvas_w / grid}`
     const blank_no = this.get_blank_no();
     const arr = [];
     let bg_img = `background-image:url(${this.data.jigsaw_img_url}`;
@@ -73,9 +83,9 @@ Page({
         let col = {
           fragment_no: i * grid + j + 1,
           styles: [
-            `background-position: ${-width * j}rpx ${-width * i}rpx`,
-            `width:${width}rpx`,
-            `height:${width}rpx`
+            `background-position: ${-width * j}px ${-width * i}px`,
+            `width:${width}px`,
+            `height:${width}px`
           ],
         }
         col.styles.push(`${col.fragment_no != blank_no ? bg_img : "background: transparent"}`);
@@ -212,17 +222,19 @@ Page({
             console.log(res.height)
             const origin_width = res.width
             const origin_height = res.height
+            const canvas_w = this.data.canvas_w
+            const canvas_h = this.data.canvas_h
             var ctx = wx.createCanvasContext('myCanvas')
-            ctx.drawImage(img_url, 0, 0, origin_width, origin_height, 0, 0, 375, 375)
-            ctx.draw(false, function () {
+            ctx.drawImage(img_url, 0, 0, origin_width, origin_height, 0, 0, canvas_w, canvas_h)
+            ctx.draw(false, () => {
               wx.canvasToTempFilePath({
                 canvasId: 'myCanvas',
                 x: 0,
                 y: 0,
-                width: 375,
-                height: 375,
-                destWidth: 375,
-                destHeight: 375,
+                width: canvas_w,
+                height: canvas_h,
+                destWidth: canvas_w,
+                destHeight: canvas_h,
                 success: (res) => {
                   console.log(res.tempFilePath)
                   that.setData({

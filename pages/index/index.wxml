@@ -14,4 +14,4 @@
     <button class="btn" type="primary" plain="{{true}}" bindtap="reset">置位</button>
   </view>
 </view>
-<canvas class="hidden-canvas" canvas-id="myCanvas"></canvas>
+<canvas class="hidden-canvas" style="width:{{canvas_w}}px;height:{{canvas_h}}px;" canvas-id="myCanvas"></canvas>
