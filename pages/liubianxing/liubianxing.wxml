@@ -1,0 +1,142 @@
+<!-- pages/liubianxing/liubianxing.wxml -->
+<image src="{{img_src}}" />
+<view class="box">
+    <!-- 第一行(lineFirst) -->
+    <view class="line1">
+        <view class="pic-item">
+            <view class="boxF">
+                <view class="boxS">
+                    <view class="boxT pic1-1" style="background-image: url({{img_src}});"></view>
+                </view>
+            </view>
+        </view>
+        <view class="pic-item">
+            <view class="boxF">
+                <view class="boxS">
+                    <view class="boxT pic1-2" style="background-image: url({{img_src}});"></view>
+                </view>
+            </view>
+        </view>
+        <view class="pic-item">
+            <view class="boxF">
+                <view class="boxS">
+                    <view class="boxT pic1-3" style="background-image: url({{img_src}});"></view>
+                </view>
+            </view>
+        </view>
+        <view class="pic-item">
+            <view class="boxF">
+                <view class="boxS">
+                    <view class="boxT pic1-4" style="background-image: url({{img_src}});"></view>
+                </view>
+            </view>
+        </view>
+        <!-- <view class="pic-item">
+                <view class="boxF">
+                    <view class="boxS">
+                        <view class="boxT pic1-5" style="background-image: url({{img_src}});"></view>
+                    </view>
+                </view>
+            </view>
+            <view class="pic-item">
+                <view class="boxF">
+                    <view class="boxS">
+                        <view class="boxT pic1-6" style="background-image: url({{img_src}});"></view>
+                    </view>
+                </view>
+            </view> -->
+    </view>
+    <!-- 第二行(lineSecond) -->
+    <view class="line2">
+        <view class="pic-item">
+            <view class="boxF">
+                <view class="boxS">
+                    <view class="boxT pic2-1" style="background-image: url({{img_src}});"></view>
+                </view>
+            </view>
+        </view>
+        <view class="pic-item">
+            <view class="boxF">
+                <view class="boxS">
+                    <view class="boxT pic2-2" style="background-image: url({{img_src}});"></view>
+                </view>
+            </view>
+        </view>
+        <view class="pic-item">
+            <view class="boxF">
+                <view class="boxS">
+                    <view class="boxT pic2-3" style="background-image: url({{img_src}});"></view>
+                </view>
+            </view>
+        </view>
+        <view class="pic-item">
+            <view class="boxF">
+                <view class="boxS">
+                    <view class="boxT pic2-4" style="background-image: url({{img_src}});"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 第三行(lineThird) -->
+    <view class="line3">
+        <view class="pic-item">
+            <view class="boxF">
+                <view class="boxS">
+                    <view class="boxT pic3-1" style="background-image: url({{img_src}});"></view>
+                </view>
+            </view>
+        </view>
+        <view class="pic-item">
+            <view class="boxF">
+                <view class="boxS">
+                    <view class="boxT pic3-2" style="background-image: url({{img_src}});"></view>
+                </view>
+            </view>
+        </view>
+        <view class="pic-item">
+            <view class="boxF">
+                <view class="boxS">
+                    <view class="boxT pic3-3" style="background-image: url({{img_src}});"></view>
+                </view>
+            </view>
+        </view>
+        <view class="pic-item">
+            <view class="boxF">
+                <view class="boxS">
+                    <view class="boxT pic3-4" style="background-image: url({{img_src}});"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 第四行(lineFour) -->
+    <view class="line4">
+        <view class="pic-item">
+            <view class="boxF">
+                <view class="boxS">
+                    <view class="boxT pic4-1" style="background-image: url({{img_src}});"></view>
+                </view>
+            </view>
+        </view>
+        <view class="pic-item">
+            <view class="boxF">
+                <view class="boxS">
+                    <view class="boxT pic4-2" style="background-image: url({{img_src}});"></view>
+                </view>
+            </view>
+        </view>
+        <view class="pic-item">
+            <view class="boxF">
+                <view class="boxS">
+                    <view class="boxT pic4-3" style="background-image: url({{img_src}});"></view>
+                </view>
+            </view>
+        </view>
+        <view class="pic-item">
+            <view class="boxF">
+                <view class="boxS">
+                    <view class="boxT pic4-4" style="background-image: url({{img_src}});"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

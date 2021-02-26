@@ -1,6 +1,6 @@
 <!-- index.wxml -->
 <view class="page-container">
-  <image src="{{jigsaw_img_url}}" class="img-preview" />
+  <image mode="widthFix" src="{{jigsaw_img_url}}" class="img-preview" />
   <view class="pic-container">
     <block wx:for="{{pictures}}" wx:key="out_index" wx:for-index="out_index" wx:for-item="out_item">
       <block wx:for="{{out_item}}" wx:key="index">
@@ -12,6 +12,9 @@
     <button class="btn" type="primary" plain="{{true}}" bindtap="choose_img">更换图片</button>
     <button class="btn" type="primary" plain="{{true}}" bindtap="restart">重新开始新游戏</button>
     <button class="btn" type="primary" plain="{{true}}" bindtap="reset">置位</button>
+    <button class="btn" type="primary" plain="{{true}}">
+      <navigator open-type="navigate" url="../liubianxing/liubianxing">六边形</navigator>
+    </button>
   </view>
 </view>
 <canvas class="hidden-canvas" style="width:{{canvas_w}}px;height:{{canvas_h}}px;" canvas-id="myCanvas"></canvas>

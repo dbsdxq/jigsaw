@@ -1,0 +1,188 @@
+/* pages/liubianxing/liubianxing.wxss */
+
+.line1 {
+    position: relative;
+}
+
+.line2 {
+    position: relative;
+    top: -31px;
+    left: 42px;
+}
+
+.line3 {
+    position: relative;
+    top: -62px;
+    left: 0;
+}
+
+.line4 {
+    position: relative;
+    top: -93px;
+    left: 42px;
+}
+
+.boxF,
+.boxS,
+.boxT {
+    width: 80px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.boxF,
+.boxS {
+    visibility: hidden;
+}
+
+.boxF {
+    transform: rotate(120deg);
+    float: left;
+}
+
+.boxS {
+    transform: rotate(-60deg);
+}
+
+.boxT {
+    transform: rotate(-60deg);
+    /* background: no-repeat 50% center; */
+    /* background-size: 125% auto; */
+    visibility: visible;
+    background-repeat: no-repeat;
+    /* background-image: url('img/strawberry.jpg'); */
+    background-color: #b2f3fb;
+}
+
+.pic-item {
+    margin-left: 4px;
+    display: inline-block;
+}
+
+.pic-item:after {
+    content: '';
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.pic1-1 {
+    /* width = 80 */
+    background-position: 0 0;
+}
+
+.pic1-2 {
+    /* width = 80 */
+    /* 1*width  */
+    background-position: -80px 0;
+}
+
+.pic1-3 {
+    /* width = 80 */
+    /* 2*width  */
+    background-position: -160px 0;
+}
+
+.pic1-4 {
+    /* width = 80 */
+    /* 3*width  */
+    background-position: -240px 0;
+}
+
+.pic1-5 {
+    /* width = 80 */
+    /* 4*width  */
+    background-position: -320px 0;
+}
+
+.pic1-6 {
+    /* width = 80 */
+    /* 5*width  */
+    background-position: -400px 0;
+}
+
+.pic2-1 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -40px -75px;
+}
+
+.pic2-2 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -120px -75px;
+}
+
+.pic2-3 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -200px -75px;
+}
+
+.pic2-4 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -280px -75px;
+}
+
+.pic3-1 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: 0 -150px;
+}
+
+.pic3-2 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -80px -150px;
+}
+
+.pic3-3 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -160px -150px;
+}
+
+.pic3-4 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -240px -150px;
+}
+
+.pic4-1 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -40px -225px;
+}
+
+.pic4-2 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -120px -225px;
+}
+
+.pic4-3 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -200px -225px;
+}
+
+.pic4-4 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -280px -225px;
+}
