@@ -1,7 +1,19 @@
 <!-- pages/liubianxing/liubianxing.wxml -->
 <image src="{{img_src}}" />
 <view class="box">
-    <!-- 第一行(lineFirst) -->
+    <block wx:for="{{liubianxing_pic}}" wx:for-index="row_index" wx:for-item="out_item">
+        <view class="line{{row_index+1}}">
+            <view class="pic-item" wx:for="{{out_item}}">
+                <view class="boxF">
+                    <view class="boxS">
+                        <view class="boxT {{item.className}}" style="background-image: url({{img_src}});" data-row-index="{{row_index}}" data-col-index="{{index}}" bindtap="click_pic" ></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<!-- <view class="box">
     <view class="line1">
         <view class="pic-item">
             <view class="boxF">
@@ -31,22 +43,7 @@
                 </view>
             </view>
         </view>
-        <!-- <view class="pic-item">
-                <view class="boxF">
-                    <view class="boxS">
-                        <view class="boxT pic1-5" style="background-image: url({{img_src}});"></view>
-                    </view>
-                </view>
-            </view>
-            <view class="pic-item">
-                <view class="boxF">
-                    <view class="boxS">
-                        <view class="boxT pic1-6" style="background-image: url({{img_src}});"></view>
-                    </view>
-                </view>
-            </view> -->
     </view>
-    <!-- 第二行(lineSecond) -->
     <view class="line2">
         <view class="pic-item">
             <view class="boxF">
@@ -77,7 +74,6 @@
             </view>
         </view>
     </view>
-    <!-- 第三行(lineThird) -->
     <view class="line3">
         <view class="pic-item">
             <view class="boxF">
@@ -108,7 +104,6 @@
             </view>
         </view>
     </view>
-    <!-- 第四行(lineFour) -->
     <view class="line4">
         <view class="pic-item">
             <view class="boxF">
@@ -139,4 +134,4 @@
             </view>
         </view>
     </view>
-</view>
+</view> -->

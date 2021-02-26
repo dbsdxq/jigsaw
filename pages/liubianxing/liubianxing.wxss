@@ -1,4 +1,7 @@
-/* pages/liubianxing/liubianxing.wxss */
+/* pages/csspicture/csspicture.wxss */
+.box {
+    /* background-color: pink;   */
+}
 
 .line1 {
     position: relative;
@@ -6,20 +9,32 @@
 
 .line2 {
     position: relative;
-    top: -31px;
+    top: -28px;
     left: 42px;
 }
 
 .line3 {
     position: relative;
-    top: -62px;
-    left: 0;
+    top: -56px;
 }
 
 .line4 {
     position: relative;
-    top: -93px;
+    top: -84px;
     left: 42px;
+}
+
+/* 清除浮动 */
+.line1:after,
+.line2:after,
+.line3:after,
+.line4:after {
+    content: '';
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
 }
 
 .boxF,
@@ -50,13 +65,13 @@
     /* background-size: 125% auto; */
     visibility: visible;
     background-repeat: no-repeat;
-    /* background-image: url('img/strawberry.jpg'); */
-    background-color: #b2f3fb;
 }
 
 .pic-item {
+    float: left;
     margin-left: 4px;
     display: inline-block;
+    overflow: hidden;
 }
 
 .pic-item:after {
@@ -91,18 +106,6 @@
     background-position: -240px 0;
 }
 
-.pic1-5 {
-    /* width = 80 */
-    /* 4*width  */
-    background-position: -320px 0;
-}
-
-.pic1-6 {
-    /* width = 80 */
-    /* 5*width  */
-    background-position: -400px 0;
-}
-
 .pic2-1 {
     /* width = 80 */
     /* height = 100 */
@@ -133,29 +136,24 @@
 
 .pic3-1 {
     /* width = 80 */
-    /* height = 100 */
-    /* width + width/2  */
-    background-position: 0 -150px;
+    background-position: 0px -150px;
 }
 
 .pic3-2 {
     /* width = 80 */
-    /* height = 100 */
-    /* width + width/2  */
+    /* 1*width  */
     background-position: -80px -150px;
 }
 
 .pic3-3 {
     /* width = 80 */
-    /* height = 100 */
-    /* width + width/2  */
+    /* 2*width  */
     background-position: -160px -150px;
 }
 
 .pic3-4 {
     /* width = 80 */
-    /* height = 100 */
-    /* width + width/2  */
+    /* 3*width  */
     background-position: -240px -150px;
 }
 
@@ -164,6 +162,7 @@
     /* height = 100 */
     /* width + width/2  */
     background-position: -40px -225px;
+    background-color: rgb(191, 216, 223);
 }
 
 .pic4-2 {
@@ -171,6 +170,7 @@
     /* height = 100 */
     /* width + width/2  */
     background-position: -120px -225px;
+    background-color: rgb(191, 216, 223);
 }
 
 .pic4-3 {
@@ -178,11 +178,17 @@
     /* height = 100 */
     /* width + width/2  */
     background-position: -200px -225px;
+    background-color: rgb(191, 216, 223);
 }
 
 .pic4-4 {
     /* width = 80 */
     /* height = 100 */
     /* width + width/2  */
-    background-position: -280px -225px;
+    background-position: -1000px -1000px;
+    background-color: rgb(191, 216, 223);
+}
+
+.center {
+    text-align: center;
 }
