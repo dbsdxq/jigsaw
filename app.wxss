@@ -1,4 +1,11 @@
 /**app.wxss**/
-.container {
+.container {}
 
+.img-preview {
+    margin-top: 4rpx;
+    width: 500rpx;
+    /* height: 300rpx; */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }

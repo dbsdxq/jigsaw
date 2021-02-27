@@ -3,15 +3,6 @@
   background-color: #fff;
 }
 
-.img-preview {
-  margin-top: 4rpx;
-  width: 500rpx;
-  /* height: 300rpx; */
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-
 .pic-container {
   margin-top: 12rpx;
   widows: 750rpx;

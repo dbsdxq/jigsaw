@@ -5,7 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        img_src: "/img/strawberry.jpg",
+        img_src: "https://636c-cloud-dbsdxq-675mm-1304230830.tcb.qcloud.la/strawberry.jpg",
+        // img_src: "/img/strawberry.jpg",
         liubianxing_pic: [
             [
                 {

@@ -40,7 +40,7 @@
     },
     "compileType": "miniprogram",
     "libVersion": "2.14.4",
-    "appid": "wxa903f6d278bea4cd",
+    "appid": "wxad47ee99978810cc",
     "projectname": "jigsaw",
     "debugOptions": {
         "hidedInDevtools": []
@@ -50,16 +50,10 @@
     "simulatorType": "wechat",
     "simulatorPluginLibVersion": {},
     "condition": {
-        "search": {
-            "list": []
-        },
-        "conversation": {
+        "plugin": {
             "list": []
         },
         "game": {
-            "list": []
-        },
-        "plugin": {
             "list": []
         },
         "gamePlugin": {

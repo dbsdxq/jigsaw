@@ -1,12 +1,12 @@
 <!-- pages/liubianxing/liubianxing.wxml -->
-<image src="{{img_src}}" />
+<image mode="widthFix" src="{{img_src}}" class="img-preview" />
 <view class="box">
     <block wx:for="{{liubianxing_pic}}" wx:for-index="row_index" wx:for-item="out_item">
         <view class="line{{row_index+1}}">
             <view class="pic-item" wx:for="{{out_item}}">
                 <view class="boxF">
                     <view class="boxS">
-                        <view class="boxT {{item.className}}" style="background-image: url({{img_src}});" data-row-index="{{row_index}}" data-col-index="{{index}}" bindtap="click_pic" ></view>
+                        <view class="boxT {{item.className}}" style="background-image: url({{img_src}});" data-row-index="{{row_index}}" data-col-index="{{index}}" bindtap="click_pic"></view>
                     </view>
                 </view>
             </view>
