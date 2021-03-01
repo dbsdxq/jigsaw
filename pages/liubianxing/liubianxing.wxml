@@ -13,6 +13,7 @@
         </view>
     </block>
 </view>
+<button class="btn" type="primary" plain="{{true}}" bindtap="prompt">提示</button>
 <!-- <view class="box">
     <view class="line1">
         <view class="pic-item">

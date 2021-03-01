@@ -1,13 +1,19 @@
 // index.js
+const Puzzle = require('../utils/Puzzle')
 
+let puzzle = new Puzzle()
 // 获取应用实例
-const app = getApp()
+// const app = getApp()
 
 Page({
   data: {
     // 拼图碎片
     pictures: [
       [{
+        fragment_no: 0,
+        styles: '',
+      },
+      {
         fragment_no: 1,
         styles: '',
       },
@@ -15,16 +21,12 @@ Page({
         fragment_no: 2,
         styles: '',
       },
-      {
-        fragment_no: 3,
-        styles: '',
-      },
-      {
-        fragment_no: 3,
-        styles: '',
-      },
       ],
       [{
+        fragment_no: 3,
+        styles: '',
+      },
+      {
         fragment_no: 4,
         styles: '',
       },
@@ -32,26 +34,23 @@ Page({
         fragment_no: 5,
         styles: '',
       },
-      {
+      ],
+      [{
         fragment_no: 6,
         styles: '',
       },
-      ],
-      [{
+      {
         fragment_no: 7,
         styles: '',
       },
       {
-        fragment_no: 8,
-        styles: '',
-      },
-      {
         // 认定9号碎片显示为空白或者说最后一块默认为空白
-        fragment_no: 9,
+        fragment_no: 8,
         styles: '',
       },
       ]
     ],
+    backup_pictures: [],
     // 拼图图片地址
     jigsaw_img_url: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3848402655,92542552&fm=26&gp=0.jpg',
     grid: 3, // 控制布局矩阵大小
@@ -81,7 +80,7 @@ Page({
       let row = [];
       for (let j = 0; j < grid; j++) {
         let col = {
-          fragment_no: i * grid + j + 1,
+          fragment_no: i * grid + j,
           styles: [
             `background-position: ${-width * j}px ${-width * i}px`,
             `width:${width}px`,
@@ -95,12 +94,15 @@ Page({
       arr.push(row)
     }
     this.setData({
-      pictures: arr
+      pictures: arr,
+      backup_pictures: arr.flat(Infinity).sort((a, b) => {
+        return a.fragment_no - b.fragment_no
+      })
     })
   },
   // 获取空白编号
   get_blank_no() {
-    return this.data.grid * this.data.grid
+    return this.data.grid * this.data.grid - 1
   },
   // 点击图片
   click_pic(e) {
@@ -261,4 +263,31 @@ Page({
   reset() {
     this.restart(false)
   },
+  // 提示
+  prompt() {
+    var arr = this.data.pictures.flat(Infinity).map((v, index) => v.fragment_no);
+    const grid = this.data.grid
+    puzzle = new Puzzle()
+    puzzle.setCoordinateBygrid(grid)
+    puzzle.setOrder(arr)
+    var backup_pictures = this.data.backup_pictures;
+    puzzle.searchA((process_arr) => {
+      setTimeout(() => {
+        const pictures = process_arr.map((v) => {
+          return backup_pictures[v]
+        })
+        const len = pictures.length;
+        const arr = [];
+        // 重新恢复二维数组
+        for (let i = 0; i < len;) {
+          arr.push(pictures.slice(i, i += grid))
+        }
+        this.setData({
+          pictures: arr
+        })
+      }, 300)
+    })
+    console.log(puzzle);
+  },
+
 })
