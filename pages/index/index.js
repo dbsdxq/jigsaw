@@ -269,23 +269,56 @@ Page({
     const grid = this.data.grid
     puzzle = new Puzzle()
     puzzle.setCoordinateBygrid(grid)
-    puzzle.setOrder(arr)
+    var temp = [];
+    arr.forEach((v, i) => {
+      temp[v] = i
+    })
+    puzzle.setOrder(temp)
     var backup_pictures = this.data.backup_pictures;
     puzzle.searchA((process_arr) => {
-      setTimeout(() => {
-        const pictures = process_arr.map((v) => {
-          return backup_pictures[v]
+      // setTimeout(() => {
+      //   const pictures = process_arr.map((v) => {
+      //     return backup_pictures[v]
+      //   })
+      //   const len = pictures.length;
+      //   const arr = [];
+      //   // 重新恢复二维数组
+      //   for (let i = 0; i < len;) {
+      //     arr.push(pictures.slice(i, i += grid))
+      //   }
+      //   this.setData({
+      //     pictures: arr
+      //   })
+      // }, 300)
+      // debugger
+      // process_arr 正常的图 index 放到了 value 位置
+      const result = []
+      Object.keys(process_arr).forEach((index) => {
+        backup_pictures.forEach((v2) => {
+          if (index == v2.fragment_no) {
+            result[process_arr[index]] = v2;
+          }
         })
-        const len = pictures.length;
-        const arr = [];
-        // 重新恢复二维数组
-        for (let i = 0; i < len;) {
-          arr.push(pictures.slice(i, i += grid))
-        }
-        this.setData({
-          pictures: arr
-        })
-      }, 300)
+      })
+      console.log("步骤")
+      puzzle.log2(result.map((v) => v.fragment_no));
+      return new Promise((r, j) => {
+        setTimeout(() => {
+          // const pictures = result.map((v, index) => {
+          //   return backup_pictures[v]
+          // })
+          const len = result.length;
+          const arr = [];
+          // 重新恢复二维数组
+          for (let i = 0; i < len;) {
+            arr.push(result.slice(i, i += grid))
+          }
+          this.setData({
+            pictures: arr
+          })
+          r()
+        }, 100)
+      })
     })
     console.log(puzzle);
   },

@@ -42,6 +42,7 @@ function Puzzle() {
     this.nowOrder = roa([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);       //当前块排序
     console.log('初始:', JSON.stringify(this.nowOrder));
     this.purposeOder = this.nowOrder.sort((a, b) => a - b);         //目标排序
+    this.blank_no = this.purposeOder.length - 1 // 空白块儿位置为最后一个元素位置
     this.distanceCount = 0;
     this.isShowOrder = '显示序号';
     //状态空间搜索
@@ -65,6 +66,7 @@ Puzzle.prototype.setCoordinateBygrid = function (grid) {
 Puzzle.prototype.setOrder = function (arr) {
     this.nowOrder = JSON.parse(JSON.stringify(arr))
     this.purposeOder = JSON.parse(JSON.stringify(arr)).sort((a, b) => a - b);         //目标排序
+    this.blank_no = this.purposeOder.length - 1 // 空白块儿位置为最后一个元素位置
 }
 //位置初始化
 // Puzzle.prototype.blockInit = function () {
@@ -159,14 +161,28 @@ Puzzle.prototype.totalDis = function (arr) {
 //     }
 // }
 
+Puzzle.prototype.log2 = function (arr1, tag = '') {
+    const len = arr1.length;
+    const arr2 = [];
+    // 重新恢复二维数组
+    for (let i = 0; i < len;) {
+        arr2.push(arr1.slice(i, i += 3))
+    }
+    console.log("*********")
+    arr2.forEach((v) => {
+        console.log(tag, JSON.stringify(v))
+    })
+    console.log("*********")
+}
 
 //状态空间搜索
-Puzzle.prototype.searchA = function (process_cb) {
+Puzzle.prototype.searchA = async function (process_cb) {
     var _this = this;
     var n = 0;
     var lastState;
     var nowAllNode = [];
     var isSuccess = false;
+    var blank_no = _this.blank_no
     //估价函数
     var hx = _this.totalDis(_this.nowOrder) + _this.step;
     _this.Open.push({
@@ -192,7 +208,7 @@ Puzzle.prototype.searchA = function (process_cb) {
         if (JSON.stringify(temp.state) == JSON.stringify(_this.purposeOder)) {
             console.log("成功只差一步之遥，O(∩_∩)O哈哈~");
             isSuccess = true;
-            process_cb && process_cb(_this.nowOrder)
+            process_cb && await process_cb(_this.nowOrder)
             break;
         }
         nowAllNode.push(temp);
@@ -204,10 +220,10 @@ Puzzle.prototype.searchA = function (process_cb) {
         //扩展节点
         temp.state.forEach(function (el, index) {
             var nowA = deepCopy(temp.state);
-            if (_this.distance(el, temp.state[8]) == 1) {
+            if (_this.distance(el, temp.state[blank_no]) == 1) {
                 let s = el;
-                nowA[index] = nowA[8];
-                nowA[8] = s;
+                nowA[index] = nowA[blank_no];
+                nowA[blank_no] = s;
                 var kz = {
                     h: _this.step + _this.totalDis(nowA),
                     state: nowA
@@ -224,7 +240,7 @@ Puzzle.prototype.searchA = function (process_cb) {
             lastState = _this.nowOrder;
             _this.nowOrder = _this.Closed.pop().state;
             // console.log(JSON.stringify(_this.nowOrder));
-            process_cb && process_cb(_this.nowOrder)
+            process_cb && await process_cb(_this.nowOrder)
             // _this.blockInit();
         }
         n++;

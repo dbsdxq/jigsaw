@@ -21,6 +21,7 @@
   box-sizing: border-box;
   padding: 1px;
   background-clip: content-box;
+  font-size: 0;
 }
 
 /* 
