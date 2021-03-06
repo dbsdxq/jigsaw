@@ -1,0 +1,199 @@
+/* pages/csspicture/csspicture.wxss */
+.box {
+    /* background-color: pink;   */
+}
+
+.line1 {
+    position: relative;
+}
+
+.line2 {
+    position: relative;
+    top: -28px;
+    left: 42px;
+}
+
+.line3 {
+    position: relative;
+    top: -56px;
+}
+
+.line4 {
+    position: relative;
+    top: -84px;
+    left: 42px;
+}
+
+/* 清除浮动 */
+.line1:after,
+.line2:after,
+.line3:after,
+.line4:after {
+    content: '';
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.boxF,
+.boxS,
+.boxT {
+    width: 80px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.boxF,
+.boxS {
+    visibility: hidden;
+}
+
+.boxF {
+    transform: rotate(120deg);
+    float: left;
+}
+
+.boxS {
+    transform: rotate(-60deg);
+}
+
+.boxT {
+    transform: rotate(-60deg);
+    /* background: no-repeat 50% center; */
+    /* background-size: 125% auto; */
+    visibility: visible;
+    background-repeat: no-repeat;
+}
+
+.pic-item {
+    float: left;
+    margin-left: 4px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.pic-item:after {
+    content: '';
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.pic1-1 {
+    /* width = 80 */
+    background-position: 0 0;
+}
+
+.pic1-2 {
+    /* width = 80 */
+    /* 1*width  */
+    background-position: -80px 0;
+}
+
+.pic1-3 {
+    /* width = 80 */
+    /* 2*width  */
+    background-position: -160px 0;
+}
+
+.pic1-4 {
+    /* width = 80 */
+    /* 3*width  */
+    background-position: -240px 0;
+}
+
+.pic2-1 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -40px -75px;
+}
+
+.pic2-2 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -120px -75px;
+}
+
+.pic2-3 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -200px -75px;
+}
+
+.pic2-4 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -280px -75px;
+}
+
+.pic3-1 {
+    /* width = 80 */
+    background-position: 0px -150px;
+}
+
+.pic3-2 {
+    /* width = 80 */
+    /* 1*width  */
+    background-position: -80px -150px;
+}
+
+.pic3-3 {
+    /* width = 80 */
+    /* 2*width  */
+    background-position: -160px -150px;
+}
+
+.pic3-4 {
+    /* width = 80 */
+    /* 3*width  */
+    background-position: -240px -150px;
+}
+
+.pic4-1 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -40px -225px;
+    background-color: rgb(191, 216, 223);
+}
+
+.pic4-2 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -120px -225px;
+    background-color: rgb(191, 216, 223);
+}
+
+.pic4-3 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -200px -225px;
+    background-color: rgb(191, 216, 223);
+}
+
+.pic4-4 {
+    /* width = 80 */
+    /* height = 100 */
+    /* width + width/2  */
+    background-position: -1000px -1000px;
+    background-color: rgb(191, 216, 223);
+}
+
+.blank {
+    background-position: -1000px -1000px;
+    background-color: rgb(191, 216, 223);
+}
+
+.center {
+    text-align: center;
+}

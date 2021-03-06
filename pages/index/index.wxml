@@ -16,7 +16,10 @@
     <button class="btn" type="primary" plain="{{true}}" bindtap="reset">置位</button>
     <button class="btn" type="primary" plain="{{true}}" bindtap="prompt">提示</button>
     <button class="btn" type="primary" plain="{{true}}">
-      <navigator open-type="navigate" url="../liubianxing/liubianxing">六边形</navigator>
+      <navigator open-type="navigate" url="../liubianxing/liubianxing">六边形4x4</navigator>
+    </button>
+    <button class="btn" type="primary" plain="{{true}}">
+      <navigator open-type="navigate" url="../liubianxing_3_3/liubianxing_3_3">六边形3x3</navigator>
     </button>
   </view>
 </view>
