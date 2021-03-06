@@ -9,11 +9,10 @@ Page({
      * 页面的初始数据
      */
     data: {
-        img_src: "https://636c-cloud-dbsdxq-675mm-1304230830.tcb.qcloud.la/strawberry.jpg",
+        img_src: "https://636c-cloud-dbsdxq-675mm-1304230830.tcb.qcloud.la/280-250.png",
         // img_src: "/img/strawberry.jpg",
         liubianxing_pic: [
-            [
-                {
+            [{
                     className: 'pic1-1',
                     flag: 0,
                     fragment_no: 0,
@@ -30,37 +29,36 @@ Page({
                 },
             ],
             [{
-                className: 'pic2-1',
-                flag: 0,
-                fragment_no: 3,
-            },
-            {
-                className: 'pic2-2',
-                fragment_no: 4,
-            },
-            {
-                className: 'pic2-3',
-                fragment_no: 5,
+                    className: 'pic2-1',
+                    flag: 0,
+                    fragment_no: 3,
+                },
+                {
+                    className: 'pic2-2',
+                    fragment_no: 4,
+                },
+                {
+                    className: 'pic2-3',
+                    fragment_no: 5,
 
-            },
+                },
             ],
             [{
-                className: 'pic3-1',
-                fragment_no: 6,
-            },
-            {
-                className: 'pic3-2',
-                fragment_no: 7,
-            },
-            {
-                className: 'pic3-3',
-                fragment_no: 8,
-                flag: 1
-            },
+                    className: 'pic3-1',
+                    fragment_no: 6,
+                },
+                {
+                    className: 'pic3-2',
+                    fragment_no: 7,
+                },
+                {
+                    className: 'pic3-3',
+                    fragment_no: 8,
+                    flag: 1
+                },
             ],
         ],
-        backup_liubianxing: [
-            {
+        backup_liubianxing: [{
                 className: 'pic1-1',
                 flag: 0,
                 fragment_no: 0,

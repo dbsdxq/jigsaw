@@ -1,6 +1,10 @@
 /* pages/csspicture/csspicture.wxss */
+.img-preview{
+    width: 280px;
+}
 .box {
     /* background-color: pink;   */
+    margin-top: 30rpx;
 }
 
 .line1 {
@@ -22,6 +26,13 @@
     position: relative;
     top: -84px;
     left: 42px;
+}
+
+.line1,
+.line2,
+.line3,
+.line4 {
+    margin-left: 62rpx;
 }
 
 /* 清除浮动 */
