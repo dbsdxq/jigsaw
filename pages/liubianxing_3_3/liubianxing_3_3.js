@@ -28,66 +28,36 @@ Page({
                     flag: 0,
                     fragment_no: 2,
                 },
-                {
-                    className: 'pic1-4',
-                    flag: 0,
-                    fragment_no: 3,
-                }
             ],
             [{
                 className: 'pic2-1',
                 flag: 0,
-                fragment_no: 4,
+                fragment_no: 3,
             },
             {
                 className: 'pic2-2',
-                fragment_no: 5,
+                fragment_no: 4,
             },
             {
                 className: 'pic2-3',
-                fragment_no: 6,
+                fragment_no: 5,
 
             },
-            {
-                className: 'pic2-4',
-                fragment_no: 7,
-            }
             ],
             [{
                 className: 'pic3-1',
-                fragment_no: 8,
+                fragment_no: 6,
             },
             {
                 className: 'pic3-2',
-                fragment_no: 9,
+                fragment_no: 7,
             },
             {
                 className: 'pic3-3',
-                fragment_no: 10,
+                fragment_no: 8,
+                flag: 1
             },
-            {
-                className: 'pic3-4',
-                fragment_no: 11,
-            }
             ],
-            [{
-                className: 'pic4-1',
-                fragment_no: 12,
-            },
-            {
-                className: 'pic4-2',
-                fragment_no: 13,
-            },
-            {
-                className: 'pic4-3',
-                fragment_no: 14,
-            },
-            {
-                className: 'pic4-4',
-                flag: 1,
-                fragment_no: 15,
-            }
-            ]
         ],
         backup_liubianxing: [
             {
@@ -106,64 +76,32 @@ Page({
                 fragment_no: 2,
             },
             {
-                className: 'pic1-4',
-                flag: 0,
-                fragment_no: 3,
-            }
-            ,
-            {
                 className: 'pic2-1',
                 flag: 0,
-                fragment_no: 4,
+                fragment_no: 3,
             },
             {
                 className: 'pic2-2',
-                fragment_no: 5,
+                fragment_no: 4,
             },
             {
                 className: 'pic2-3',
-                fragment_no: 6,
+                fragment_no: 5,
 
             },
             {
-                className: 'pic2-4',
-                fragment_no: 7,
-            }
-            ,
-            {
                 className: 'pic3-1',
-                fragment_no: 8,
+                fragment_no: 6,
             },
             {
                 className: 'pic3-2',
-                fragment_no: 9,
+                fragment_no: 7,
             },
             {
                 className: 'pic3-3',
-                fragment_no: 10,
-            },
-            {
-                className: 'pic3-4',
-                fragment_no: 11,
-            }
-            ,
-            {
-                className: 'pic4-1',
-                fragment_no: 12,
-            },
-            {
-                className: 'pic4-2',
-                fragment_no: 13,
-            },
-            {
-                className: 'pic4-3',
-                fragment_no: 14,
-            },
-            {
-                className: 'pic4-4',
+                fragment_no: 8,
                 flag: 1,
-                fragment_no: 15,
-            }
+            },
         ]
     },
 
@@ -325,25 +263,41 @@ Page({
     // 提示
     prompt() {
         var arr = this.data.liubianxing_pic.flat(Infinity).map((v, index) => v.fragment_no);
+        const grid = 3
         puzzle = new Puzzle()
-        puzzle.setCoordinateBygrid(4)
-        puzzle.setOrder(arr)
-        var backup_liubianxing = this.data.backup_liubianxing;
+        puzzle.setCoordinateBygrid(grid)
+        var temp = [];
+        arr.forEach((v, i) => {
+            temp[v] = i
+        })
+        puzzle.setOrder(temp)
+        var backup_pictures = this.data.backup_liubianxing;
         puzzle.searchA((process_arr) => {
-            setTimeout(() => {
-                const liubianxing_pic = process_arr.map((v) => {
-                    return backup_liubianxing[v]
+            // process_arr 正常的图 index 放到了 value 位置
+            const result = []
+            Object.keys(process_arr).forEach((index) => {
+                backup_pictures.forEach((v2) => {
+                    if (index == v2.fragment_no) {
+                        result[process_arr[index]] = v2;
+                    }
                 })
-                const len = liubianxing_pic.length;
-                const arr = [];
-                // 重新恢复二维数组
-                for (let i = 0; i < len;) {
-                    arr.push(liubianxing_pic.slice(i, i += 4))
-                }
-                this.setData({
-                    liubianxing_pic: arr
-                })
-            }, 300)
+            })
+            console.log("步骤")
+            puzzle.log2(result.map((v) => v.fragment_no));
+            return new Promise((r, j) => {
+                setTimeout(() => {
+                    const len = result.length;
+                    const arr = [];
+                    // 重新恢复二维数组
+                    for (let i = 0; i < len;) {
+                        arr.push(result.slice(i, i += grid))
+                    }
+                    this.setData({
+                        liubianxing_pic: arr
+                    })
+                    r()
+                }, 50)
+            })
         })
         console.log(puzzle);
     },
