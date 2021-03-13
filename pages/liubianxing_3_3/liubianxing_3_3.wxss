@@ -1,7 +1,8 @@
 /* pages/csspicture/csspicture.wxss */
-.img-preview{
+.img-preview {
     width: 280px;
 }
+
 .box {
     /* background-color: pink;   */
     margin-top: 30rpx;
@@ -207,4 +208,22 @@
 
 .center {
     text-align: center;
+}
+
+.next-tips {
+    animation: animation-next-tips 0.5s linear 0s infinite forwards;
+}
+
+@keyframes animation-next-tips {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }

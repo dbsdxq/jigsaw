@@ -100,7 +100,10 @@ Page({
                 fragment_no: 8,
                 flag: 1,
             },
-        ]
+        ],
+        count: 0,
+        // 下一步的位置
+        next_steps_index: -1,
     },
 
     /**
@@ -113,7 +116,8 @@ Page({
         console.log('object', this.testData);
     },
     click_pic(e) {
-        var count = this.data.count
+        var count = this.data.count;
+        var origin_count = count;
         const row_index = e.target.dataset.rowIndex;
         const col_index = e.target.dataset.colIndex;
         console.log('row_index', row_index)
@@ -219,6 +223,12 @@ Page({
             liubianxing_pic: row,
             count: count
         })
+        // 计数值不等，说明确实移动过白块，需要清除提示动画
+        if (origin_count != count) {
+            this.setData({
+                next_steps_index: -1
+            })
+        }
         if (this.game_finish()) {
             wx.showToast({
                 title: '恭喜过关',
@@ -270,7 +280,7 @@ Page({
         })
         puzzle.setOrder(temp)
         var backup_pictures = this.data.backup_liubianxing;
-        puzzle.searchA((process_arr) => {
+        puzzle.searchA((process_arr, finish) => {
             // process_arr 正常的图 index 放到了 value 位置
             const result = []
             Object.keys(process_arr).forEach((index) => {
@@ -279,6 +289,10 @@ Page({
                         result[process_arr[index]] = v2;
                     }
                 })
+            })
+            // 找到下一步移动的位置
+            this.setData({
+                next_steps_index: process_arr[8]
             })
             console.log("步骤")
             puzzle.log2(result.map((v) => v.fragment_no));
@@ -294,7 +308,7 @@ Page({
                         liubianxing_pic: arr
                     })
                     r()
-                }, 50)
+                }, 2000)
             })
         })
         console.log(puzzle);

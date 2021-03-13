@@ -208,7 +208,7 @@ Puzzle.prototype.searchA = async function (process_cb) {
         if (JSON.stringify(temp.state) == JSON.stringify(_this.purposeOder)) {
             console.log("成功只差一步之遥，O(∩_∩)O哈哈~");
             isSuccess = true;
-            process_cb && await process_cb(_this.nowOrder)
+            process_cb && await process_cb(_this.purposeOder, true)
             break;
         }
         nowAllNode.push(temp);
