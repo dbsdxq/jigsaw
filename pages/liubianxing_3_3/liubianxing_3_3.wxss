@@ -77,6 +77,13 @@
     /* background-size: 125% auto; */
     visibility: visible;
     background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    text-shadow: 1px 1px #0DADC5, -1px -1px #0DADC5, 1px -1px #0DADC5, -1px 1px #0DADC5;
 }
 
 .pic-item {

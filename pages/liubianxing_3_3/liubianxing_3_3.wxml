@@ -7,7 +7,7 @@
                 <view class="boxF">
                     <view class="boxS">
                         <view class="boxT {{item.flag?'blank':item.className}}" style="background-image: url({{img_src}});" data-row-index="{{row_index}}" data-col-index="{{index}}" bindtap="click_pic">
-                            {{item.fragment_no}}
+                            <!-- {{item.fragment_no}} -->
                         </view>
                     </view>
                 </view>
