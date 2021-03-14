@@ -358,8 +358,19 @@ Page({
 
     /**
      * 用户点击右上角分享
+     * 分享好友
      */
     onShareAppMessage: function () {
 
+    },
+    /**
+     * 用户点击右上角分享
+     * 分享朋友圈
+     */
+    onShareTimeline: function (res) {
+        // return {
+        //     title: '',
+        //     query: ''
+        // }
     }
 })
