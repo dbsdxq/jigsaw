@@ -13,52 +13,6 @@ Page({
         // img_src: "/img/strawberry.jpg",
         liubianxing_pic: [
             [{
-                    className: 'pic1-1',
-                    flag: 0,
-                    fragment_no: 0,
-                },
-                {
-                    className: 'pic1-2',
-                    flag: 0,
-                    fragment_no: 1,
-                },
-                {
-                    className: 'pic1-3',
-                    flag: 0,
-                    fragment_no: 2,
-                },
-            ],
-            [{
-                    className: 'pic2-1',
-                    flag: 0,
-                    fragment_no: 3,
-                },
-                {
-                    className: 'pic2-2',
-                    fragment_no: 4,
-                },
-                {
-                    className: 'pic2-3',
-                    fragment_no: 5,
-
-                },
-            ],
-            [{
-                    className: 'pic3-1',
-                    fragment_no: 6,
-                },
-                {
-                    className: 'pic3-2',
-                    fragment_no: 7,
-                },
-                {
-                    className: 'pic3-3',
-                    fragment_no: 8,
-                    flag: 1
-                },
-            ],
-        ],
-        backup_liubianxing: [{
                 className: 'pic1-1',
                 flag: 0,
                 fragment_no: 0,
@@ -73,7 +27,8 @@ Page({
                 flag: 0,
                 fragment_no: 2,
             },
-            {
+            ],
+            [{
                 className: 'pic2-1',
                 flag: 0,
                 fragment_no: 3,
@@ -87,7 +42,8 @@ Page({
                 fragment_no: 5,
 
             },
-            {
+            ],
+            [{
                 className: 'pic3-1',
                 fragment_no: 6,
             },
@@ -98,8 +54,52 @@ Page({
             {
                 className: 'pic3-3',
                 fragment_no: 8,
-                flag: 1,
+                flag: 1
             },
+            ],
+        ],
+        backup_liubianxing: [{
+            className: 'pic1-1',
+            flag: 0,
+            fragment_no: 0,
+        },
+        {
+            className: 'pic1-2',
+            flag: 0,
+            fragment_no: 1,
+        },
+        {
+            className: 'pic1-3',
+            flag: 0,
+            fragment_no: 2,
+        },
+        {
+            className: 'pic2-1',
+            flag: 0,
+            fragment_no: 3,
+        },
+        {
+            className: 'pic2-2',
+            fragment_no: 4,
+        },
+        {
+            className: 'pic2-3',
+            fragment_no: 5,
+
+        },
+        {
+            className: 'pic3-1',
+            fragment_no: 6,
+        },
+        {
+            className: 'pic3-2',
+            fragment_no: 7,
+        },
+        {
+            className: 'pic3-3',
+            fragment_no: 8,
+            flag: 1,
+        },
         ],
         count: 0,
         // 下一步的位置
