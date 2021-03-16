@@ -307,7 +307,10 @@ Page({
                     this.setData({
                         liubianxing_pic: arr
                     })
-                    r()
+                    this.setData({
+                        next_steps_index: -1
+                    })
+                    j()
                 }, 2000)
             })
         })
